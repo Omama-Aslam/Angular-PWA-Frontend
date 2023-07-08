@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SwPush } from '@angular/service-worker';
 import { retry } from 'rxjs';
+import { PushNotificationService } from './service/push-notification.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent implements OnInit {
   title = 'pwa-frontend';
   private publicKey =
     'BE1DOuy5qzVVanYhcD8cnd7NIMuv5PDinH6YO-rwaEGzTax4WWck_CZ9tFPi_zsBeDs5r6IYAP8K1XZ8x8_KW5o';
-  constructor(private swPush: SwPush) {}
+  constructor(
+    private swPush: SwPush,
+    private service: PushNotificationService
+  ) {}
 
   pushSubscription() {
     if (!this.swPush.isEnabled) {
@@ -20,7 +24,11 @@ export class AppComponent implements OnInit {
     }
     this.swPush
       .requestSubscription({ serverPublicKey: this.publicKey })
-      .then((subscription) => console.log(JSON.stringify(subscription)))
+      .then((subscription) => {
+        // send subscription to the server
+        this.service.sendSubscriptionToTheServer(subscription).subscribe();
+        console.log(JSON.stringify(subscription));
+      })
       .catch((error) => console.log(error));
   }
 
