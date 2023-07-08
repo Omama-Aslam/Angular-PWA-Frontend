@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.production';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { PushNotificationService } from './service/push-notification.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [PushNotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

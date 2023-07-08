@@ -14,10 +14,10 @@ export class AppComponent implements OnInit {
   constructor(private swPush: SwPush) {}
 
   pushSubscription() {
-    // if (!this.swPush.isEnabled) {
-    //   console.log('Notifications is not enabled.');
-    //   return;
-    // }
+    if (!this.swPush.isEnabled) {
+      console.log('Notifications is not enabled.');
+      return;
+    }
     this.swPush
       .requestSubscription({ serverPublicKey: this.publicKey })
       .then((subscription) => console.log(JSON.stringify(subscription)))
