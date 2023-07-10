@@ -5,10 +5,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class PushNotificationService {
-  endPoint: string = 'localhost:3000/api/subscription';
+  endPoint: string = 'http://localhost:3000/api/subscribe';
+  endPoint1: string = 'http://localhost:3000/subscriber';
   constructor(private http: HttpClient) {}
 
   public sendSubscriptionToTheServer(subscription: PushSubscription) {
     return this.http.post(this.endPoint, subscription);
+  }
+
+  public getSubscriberFromDatabase() {
+    return this.http.get(this.endPoint1);
   }
 }
