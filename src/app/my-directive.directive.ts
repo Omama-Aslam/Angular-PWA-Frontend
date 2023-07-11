@@ -12,7 +12,7 @@ export class MyDirectiveDirective {
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.highlight('yellow');
+    this.highlight('#3178c6');
   }
 
   @HostListener('mouseleave') onMouseLeave() {
