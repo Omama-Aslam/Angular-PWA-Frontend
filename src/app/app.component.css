@@ -1,0 +1,11 @@
+div {
+  width: 30%;
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}

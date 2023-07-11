@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Directive } from '@angular/core';
 import { SwPush } from '@angular/service-worker';
-import { retry } from 'rxjs';
 import { PushNotificationService } from './service/push-notification.service';
 
 @Component({

@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { PushNotificationService } from './service/push-notification.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MyDirectiveDirective } from './my-directive.directive';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyDirectiveDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
